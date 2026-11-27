@@ -174,3 +174,45 @@
   .portada__der h1 { align-self: center; }
   .portada__hilo { opacity: 0.25; }
 }
+
+// ── Pantallas grandes (2K / 4K): la tarjeta y su contenido crecen con la pantalla ──
+@media (min-width: 1600px) and (min-height: 760px) {
+  .portada__tarjeta {
+    gap: 48px clamp(64px, 6vw, 160px);
+    padding: clamp(40px, 5svh, 72px) clamp(64px, 5vw, 140px);
+  }
+
+  .portada__marco-wrap { max-width: min(42vw, 66svh, 900px); }
+  .portada__marco { padding: clamp(17px, 1.2vw, 28px); }
+
+  .portada__lema {
+    font-size: clamp(1.25rem, 1.1vw, 1.7rem);
+    max-width: 34rem;
+  }
+
+  .portada__redes .pastilla {
+    min-height: clamp(44px, 2.6vw, 60px);
+    padding-inline: clamp(18px, 1.3vw, 28px);
+    font-size: clamp(0.92rem, 0.75vw, 1.15rem);
+  }
+
+  .portada__der {
+    max-width: min(38vw, 980px);
+    gap: clamp(22px, 3svh, 40px);
+
+    h1 { font-size: clamp(7.5rem, min(8vw, 17svh), 13rem); }
+  }
+
+  .boton-grande {
+    min-height: clamp(74px, 8.5svh, 108px);
+    padding-inline: clamp(38px, 2.4vw, 56px);
+    font-size: clamp(1.25rem, 1.05vw, 1.75rem);
+  }
+
+  .boton-grande__icono {
+    flex-basis: 40px;
+    height: 40px;
+  }
+
+  :host ::ng-deep .boton-grande__icono svg { width: 34px; height: 34px; }
+}
