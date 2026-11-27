@@ -1,0 +1,143 @@
+// Las tres paletas comparten los mismos colores semanticos.
+:root, :root[data-paleta="blossom"] {
+  --crema: #f3f3fc;
+  --papel: #fdfbff;
+  --borde: #ddd9ed;
+  --texto: #454367;
+  --texto-suave: #716b8a;
+  --enlace: #62518a;
+  --enlace-hover: #443568;
+  --rosa: #f2cee5;
+  --rosa-tinta: #874c78;
+  --cielo: #cce9eb;
+  --cielo-tinta: #326675;
+  --salvia: #dce4fa;
+  --salvia-tinta: #4d5e91;
+  --arena: #e6def4;
+  --lavanda: #e2d4f5;
+  --lavanda-tinta: #6b4d94;
+  --cabecera: #f9f7ff;
+  --puntadas: #c8acd8;
+  --hilo: #ac79ba;
+  --sombra: #dcd5ec;
+}
+
+:root[data-paleta="pastel"] {
+  --crema: #f6f1ea;
+  --papel: #fffdf9;
+  --borde: #ecdfd2;
+  --texto: #8a5a42;
+  --texto-suave: #8b6b59;
+  --enlace: #a0674c;
+  --enlace-hover: #7c4a33;
+  --rosa: #f6d0cb;
+  --rosa-tinta: #9a4f47;
+  --cielo: #d8ecee;
+  --cielo-tinta: #3f707a;
+  --salvia: #dfe7c4;
+  --salvia-tinta: #5e7034;
+  --arena: #efe3cb;
+  --lavanda: #e6dcf6;
+  --lavanda-tinta: #6b5a9a;
+  --cabecera: #fbf7f1;
+  --puntadas: #e3b9ad;
+  --hilo: #bd8068;
+  --sombra: #eadbca;
+}
+
+:root[data-paleta="tierra"] {
+  --crema: #f3eee5;
+  --papel: #fffaf2;
+  --borde: #ded4c3;
+  --texto: #55483e;
+  --texto-suave: #796957;
+  --enlace: #77523e;
+  --enlace-hover: #523728;
+  --rosa: #e9c3ae;
+  --rosa-tinta: #814a34;
+  --cielo: #d4e2dc;
+  --cielo-tinta: #3f6254;
+  --salvia: #e3d6b5;
+  --salvia-tinta: #6c5933;
+  --arena: #e7dcd0;
+  --lavanda: #d7dfe9;
+  --lavanda-tinta: #4c6079;
+  --cabecera: #f7f2e9;
+  --puntadas: #c9ab91;
+  --hilo: #a07856;
+  --sombra: #ded0bb;
+}
+
+
+:root { color-scheme: light; }
+:root[data-modo="oscuro"] { color-scheme: dark; }
+
+:root:not([data-paleta])[data-modo="oscuro"],
+:root[data-paleta="blossom"][data-modo="oscuro"] {
+  --crema: #19182b;
+  --papel: #252238;
+  --borde: #49425f;
+  --texto: #eee8fa;
+  --texto-suave: #beb3cf;
+  --enlace: #d5b9f6;
+  --enlace-hover: #f4ddff;
+  --rosa: #51334e;
+  --rosa-tinta: #f4bedf;
+  --cielo: #25444e;
+  --cielo-tinta: #ade5e8;
+  --salvia: #303c61;
+  --salvia-tinta: #c2d2ff;
+  --arena: #302940;
+  --lavanda: #433257;
+  --lavanda-tinta: #dfc2ff;
+  --cabecera: #201c30;
+  --puntadas: #6c547e;
+  --hilo: #cb96dc;
+  --sombra: #12101e;
+}
+
+:root[data-paleta="pastel"][data-modo="oscuro"] {
+  --crema: #241f28;
+  --papel: #302a33;
+  --borde: #514650;
+  --texto: #f5e8e1;
+  --texto-suave: #cbb7b1;
+  --enlace: #efbcab;
+  --enlace-hover: #ffe0ce;
+  --rosa: #573b48;
+  --rosa-tinta: #ffd0d5;
+  --cielo: #2e4850;
+  --cielo-tinta: #bee8ec;
+  --salvia: #424a35;
+  --salvia-tinta: #dceab6;
+  --arena: #403638;
+  --lavanda: #443952;
+  --lavanda-tinta: #e1c9fa;
+  --cabecera: #29232d;
+  --puntadas: #795b69;
+  --hilo: #d69ca7;
+  --sombra: #19161d;
+}
+
+:root[data-paleta="tierra"][data-modo="oscuro"] {
+  --crema: #211e1a;
+  --papel: #2d2822;
+  --borde: #51473b;
+  --texto: #f0e5d5;
+  --texto-suave: #c5b49e;
+  --enlace: #e5b38d;
+  --enlace-hover: #ffdab7;
+  --rosa: #53382b;
+  --rosa-tinta: #f3c0a0;
+  --cielo: #2f4338;
+  --cielo-tinta: #bfdcca;
+  --salvia: #4b422c;
+  --salvia-tinta: #e8d49d;
+  --arena: #393128;
+  --lavanda: #34404b;
+  --lavanda-tinta: #c4d8eb;
+  --cabecera: #27221d;
+  --puntadas: #756047;
+  --hilo: #c9a17b;
+  --sombra: #17140f;
+}

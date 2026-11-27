@@ -1,0 +1,176 @@
+// Una silueta textil irregular y enlaces colocados como piezas de un collage.
+:host {
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+  min-height: calc(100svh - var(--alto-cabecera, 80px) - 64px);
+  padding: 0 0 16px;
+}
+
+.portada__tarjeta {
+  flex: 1;
+  justify-content: center;
+  border: 0;
+  border-radius: 19% 9% 17% 8% / 13% 19% 12% 23%;
+  background: linear-gradient(135deg, var(--papel), color-mix(in srgb, var(--papel) 92%, var(--lavanda)) 55%, color-mix(in srgb, var(--papel) 88%, var(--cielo)));
+  gap: 48px clamp(36px, 6vw, 96px);
+  padding: clamp(44px, 6svh, 80px) clamp(28px, 5vw, 88px);
+}
+
+.portada__sombra {
+  inset: 35px -8px 14px 12px;
+  border-radius: 10% 21% 9% 19% / 19% 13% 23% 12%;
+  background: linear-gradient(130deg, var(--sombra), var(--lavanda) 55%, var(--cielo));
+  rotate: -1deg;
+  z-index: -1;
+}
+
+.portada__hilo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: visible;
+  stroke: var(--hilo);
+  stroke-width: 2;
+  opacity: 0.45;
+  path { vector-effect: non-scaling-stroke; }
+}
+
+.portada__izq,
+.portada__der {
+  position: relative;
+  z-index: 2;
+  flex: 1 1 340px;
+}
+
+.portada__marco-wrap { max-width: min(460px, 51svh); }
+
+.portada__marco {
+  padding: 17px;
+  border-radius: 43% 57% 62% 38% / 44% 39% 61% 56%;
+  rotate: -5deg;
+  box-shadow: 8px 12px 0 var(--sombra);
+  .foto {
+    overflow: hidden;
+    border-radius: 43% 57% 62% 38% / 44% 39% 61% 56%;
+  }
+}
+
+.portada__retrato {
+  position: relative;
+  isolation: isolate;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 43% 57% 62% 38% / 44% 39% 61% 56%;
+  background: radial-gradient(ellipse at 35% 25%, var(--papel), var(--lavanda) 65%, var(--cielo));
+
+  .foto { position: relative; z-index: 1; }
+}
+
+.portada__cielo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+
+  > g {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: retrato-flota 9s ease-in-out infinite;
+  }
+}
+
+.portada__lunitas { display: none; fill: var(--cielo-tinta); opacity: .65; }
+:host-context([data-modo="oscuro"]) .portada__lunitas { display: inline; }
+:host-context([data-modo="oscuro"]) .portada__corazones { display: none; }
+:host-context([data-paleta="pastel"]:not([data-modo="oscuro"])) {
+  .portada__retrato {
+    background: radial-gradient(ellipse at 30% 20%, #fffdf4, #fae9d8 60%, #f5d5c8);
+  }
+  .portada__estrellitas { fill: var(--cielo-tinta); opacity: .5; }
+}
+.portada__estrellitas {
+  fill: var(--lavanda-tinta);
+  opacity: .7;
+  animation-duration: 12s !important;
+  animation-delay: -4s !important;
+}
+.portada__polvo { fill: var(--rosa-tinta); opacity: .6; }
+
+@keyframes retrato-flota {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-1.5px) rotate(2deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portada__cielo g { animation: none; }
+}
+
+.portada__cinta1 { left: 15%; top: 2%; rotate: -24deg; }
+.portada__cinta2 { right: 10%; bottom: 1%; rotate: 16deg; }
+
+.portada__lema {
+  font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+  max-width: 26rem;
+  margin-top: 16px;
+}
+
+.portada__der {
+  max-width: 580px;
+  gap: clamp(20px, 3svh, 32px);
+  align-items: flex-start;
+  h1 {
+    position: relative;
+    margin: 0 0 18px 12px;
+    font-size: clamp(4.5rem, 9vw, 7.5rem);
+    rotate: -4deg;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 5%;
+      width: 100%;
+      height: 15px;
+      border-bottom: 3px solid var(--puntadas);
+      border-radius: 50%;
+      rotate: -3deg;
+    }
+  }
+}
+
+.boton-grande {
+  width: 100%;
+  min-height: clamp(60px, 7.5svh, 74px);
+  padding: 12px clamp(24px, 3vw, 38px);
+  font-size: clamp(1.05rem, 1.35vw, 1.25rem);
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+.boton-grande__icono {
+  flex-basis: 28px;
+  height: 32px;
+  background: transparent;
+}
+
+@media (max-width: 900px), (max-height: 620px) {
+  :host { min-height: calc(100svh - var(--alto-cabecera, 80px) - 40px); }
+}
+
+@media (max-width: 600px) {
+  :host { padding-top: 0; }
+  .portada__tarjeta {
+    padding: 36px 24px 48px;
+    border-radius: 48px 70px 42px 58px / 65px 42px 64px 40px;
+    gap: 32px;
+  }
+  .portada__sombra { inset: 12px -4px 18px 6px; border-radius: 60px 42px 70px 40px; }
+  .portada__marco-wrap { max-width: 300px; width: 90%; }
+  .portada__der { width: 100%; }
+  .portada__der h1 { align-self: center; }
+  .portada__hilo { opacity: 0.25; }
+}
