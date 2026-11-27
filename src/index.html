@@ -2,11 +2,21 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <script>document.documentElement.classList.add('js')</script>
+  <script>
+    // Antes de pintar: paleta guardada (o pastel) y modo guardado (o el del navegador).
+    (function () {
+      var r = document.documentElement, p = null, m = null;
+      r.classList.add('js');
+      try { p = localStorage.getItem('kt-cat-paleta'); m = localStorage.getItem('kt-cat-modo'); } catch (e) {}
+      r.dataset.paleta = p === 'tierra' || p === 'blossom' ? p : 'pastel';
+      r.dataset.modo = m === 'oscuro' || m === 'claro' ? m
+        : (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'oscuro' : 'claro');
+    })();
+  </script>
   <title>kt.cat</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Amigurumis de crochet hechos a mano, casi todos en chenilla.">
+  <meta name="description" content="Crochet hecho a mano, casi todo en chenilla.">
   <meta name="theme-color" content="#f6f1ea">
   <link rel="alternate" hreflang="es" href="es">
   <link rel="alternate" hreflang="en" href="en">

@@ -57,10 +57,10 @@ import { Icono, NombreIcono } from './icono';
         </div>
         <p class="portada__lema">{{ t().lema }}</p>
         <div class="portada__redes">
-          <a class="pastilla pastilla--cielo blandito" [href]="'https://www.instagram.com/' + redes.instagram">
+          <a target="_blank" rel="noopener noreferrer" class="pastilla pastilla--cielo blandito" [href]="'https://www.instagram.com/' + redes.instagram">
             <kt-icono nombre="instagram" [tamano]="16" />&#64;{{ redes.instagram }}
           </a>
-          <a class="pastilla pastilla--rosa blandito" [href]="'https://www.tiktok.com/@' + redes.tiktok">
+          <a target="_blank" rel="noopener noreferrer" class="pastilla pastilla--rosa blandito" [href]="'https://www.tiktok.com/@' + redes.tiktok">
             <kt-icono nombre="tiktok" [tamano]="16" />&#64;{{ redes.tiktok }}
           </a>
         </div>

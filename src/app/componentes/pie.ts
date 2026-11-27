@@ -16,8 +16,8 @@ import { Icono } from './icono';
         <span class="pie__logo">kt.cat</span>
         <p>{{ t().lema }}</p>
         <div class="pie__redes">
-          <a class="circulo blandito" [href]="'https://www.instagram.com/' + redes.instagram" aria-label="Instagram"><kt-icono nombre="instagram" /></a>
-          <a class="circulo blandito" [href]="'https://www.tiktok.com/@' + redes.tiktok" aria-label="TikTok"><kt-icono nombre="tiktok" /></a>
+          <a target="_blank" rel="noopener noreferrer" class="circulo blandito" [href]="'https://www.instagram.com/' + redes.instagram" aria-label="Instagram"><kt-icono nombre="instagram" /></a>
+          <a target="_blank" rel="noopener noreferrer" class="circulo blandito" [href]="'https://www.tiktok.com/@' + redes.tiktok" aria-label="TikTok"><kt-icono nombre="tiktok" /></a>
           <a class="circulo blandito" [href]="'mailto:' + redes.correo" [attr.aria-label]="t().correo"><kt-icono nombre="correo" /></a>
         </div>
       </div>
@@ -39,10 +39,10 @@ import { Icono } from './icono';
         <span class="titulo-mano">{{ t().encargoTitulo }}</span>
         <p>{{ t().encargoTexto }}</p>
         <div class="encargos__botones">
-          <a class="pastilla pastilla--cielo blandito" [href]="'https://ig.me/m/' + redes.instagram">
+          <a target="_blank" rel="noopener noreferrer" class="pastilla pastilla--cielo blandito" [href]="'https://ig.me/m/' + redes.instagram">
             <kt-icono nombre="instagram" [tamano]="18" />{{ t().dmInsta }}
           </a>
-          <a class="pastilla pastilla--rosa blandito" [href]="'https://www.tiktok.com/@' + redes.tiktok">
+          <a target="_blank" rel="noopener noreferrer" class="pastilla pastilla--rosa blandito" [href]="'https://www.tiktok.com/@' + redes.tiktok">
             <kt-icono nombre="tiktok" [tamano]="18" />{{ t().dmTiktok }}
           </a>
         </div>

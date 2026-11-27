@@ -35,7 +35,8 @@ describe('Selector de paleta', () => {
     const fixture = TestBed.createComponent(SelectorPaleta);
     fixture.detectChanges();
     await fixture.whenStable();
-    for (const value of ['pastel', 'tierra', 'blossom']) {
+    // Pastel viene marcada por defecto: se prueba la última para que el clic la cambie de verdad.
+    for (const value of ['tierra', 'blossom', 'pastel']) {
       const input: HTMLInputElement = fixture.nativeElement.querySelector('input[value="' + value + '"]');
       input.click();
       fixture.detectChanges();
@@ -50,8 +51,9 @@ describe('Selector de paleta', () => {
     const fixture = TestBed.createComponent(SelectorPaleta);
     fixture.detectChanges();
     await fixture.whenStable();
-    expect(TestBed.inject(PaletaService).actual()).toBe('blossom');
-    expect(document.documentElement.dataset['paleta']).toBeUndefined();
+    // Un valor desconocido se ignora y se usa la paleta por defecto (pastel original).
+    expect(TestBed.inject(PaletaService).actual()).toBe('pastel');
+    expect(document.documentElement.dataset['paleta']).toBe('pastel');
   });
 
   it('permite cambiar de paleta cuando el almacenamiento está bloqueado', async () => {

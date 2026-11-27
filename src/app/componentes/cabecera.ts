@@ -52,10 +52,10 @@ import { Buscador } from './buscador';
             >
           }
         </div>
-        <a class="circulo circulo--cielo blandito" [href]="'https://www.instagram.com/' + redes.instagram" aria-label="Instagram">
+        <a target="_blank" rel="noopener noreferrer" class="circulo circulo--cielo blandito" [href]="'https://www.instagram.com/' + redes.instagram" aria-label="Instagram">
           <kt-icono nombre="instagram" />
         </a>
-        <a class="circulo circulo--rosa blandito" [href]="'https://www.tiktok.com/@' + redes.tiktok" aria-label="TikTok">
+        <a target="_blank" rel="noopener noreferrer" class="circulo circulo--rosa blandito" [href]="'https://www.tiktok.com/@' + redes.tiktok" aria-label="TikTok">
           <kt-icono nombre="tiktok" />
         </a>
         <kt-selector-paleta />

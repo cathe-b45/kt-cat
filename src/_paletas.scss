@@ -1,5 +1,5 @@
 // Las tres paletas comparten los mismos colores semanticos.
-:root, :root[data-paleta="blossom"] {
+:root[data-paleta="blossom"] {
   --crema: #f3f3fc;
   --papel: #fdfbff;
   --borde: #ddd9ed;
@@ -22,7 +22,7 @@
   --sombra: #dcd5ec;
 }
 
-:root[data-paleta="pastel"] {
+:root, :root[data-paleta="pastel"] {
   --crema: #f6f1ea;
   --papel: #fffdf9;
   --borde: #ecdfd2;
@@ -70,9 +70,9 @@
 
 
 :root { color-scheme: light; }
+// Sin elección guardada, el modo sigue al navegador (lo fija index.html antes de pintar).
 :root[data-modo="oscuro"] { color-scheme: dark; }
 
-:root:not([data-paleta])[data-modo="oscuro"],
 :root[data-paleta="blossom"][data-modo="oscuro"] {
   --crema: #19182b;
   --papel: #252238;
@@ -96,6 +96,7 @@
   --sombra: #12101e;
 }
 
+:root:not([data-paleta])[data-modo="oscuro"],
 :root[data-paleta="pastel"][data-modo="oscuro"] {
   --crema: #241f28;
   --papel: #302a33;

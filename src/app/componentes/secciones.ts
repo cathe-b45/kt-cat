@@ -180,7 +180,7 @@ export class Testings {
         @for (p of piezas(); track $index) {
           <div class="vit">
             <span class="bocadillo" aria-hidden="true">{{ t().bocadillos[($index % 4) + 1] }}</span>
-            <a class="polaroid polaroid--trabajo" [href]="p.enlace || null" [style.rotate]="giros[$index % giros.length] + 'deg'">
+            <a target="_blank" rel="noopener noreferrer" class="polaroid polaroid--trabajo" [href]="p.enlace || null" [style.rotate]="giros[$index % giros.length] + 'deg'">
               <span [class]="'cinta ' + cintas[$index % cintas.length]" aria-hidden="true"></span>
               <kt-foto [src]="p.foto" [alt]="p.nombre" [fondo]="fondos[$index % fondos.length]" />
               <span class="polaroid__nombre">{{ p.nombre }}</span>

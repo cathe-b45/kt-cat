@@ -8,18 +8,37 @@ const CLAVE_MODO = 'kt-cat-modo';
 @Injectable({ providedIn: 'root' })
 export class PaletaService {
   private readonly documento = inject(DOCUMENT);
-  private readonly seleccion = signal<Paleta>('blossom');
+  private readonly seleccion = signal<Paleta>('pastel');
   readonly actual = this.seleccion.asReadonly();
   private readonly modoOscuro = signal(false);
   readonly oscuro = this.modoOscuro.asReadonly();
 
   constructor() {
     afterNextRender(() => {
+      const ventana = this.documento.defaultView;
+      let paleta: string | null = null;
+      let modo: string | null = null;
       try {
-        this.aplicar(this.documento.defaultView?.localStorage.getItem(CLAVE));
-        this.aplicarModo(this.documento.defaultView?.localStorage.getItem(CLAVE_MODO) === 'oscuro');
+        paleta = ventana?.localStorage.getItem(CLAVE) ?? null;
+        modo = ventana?.localStorage.getItem(CLAVE_MODO) ?? null;
       } catch {
         // La paleta sigue funcionando aunque el navegador bloquee el almacenamiento.
+      }
+      // Por defecto, pastel original.
+      if (!this.aplicar(paleta)) this.aplicar('pastel');
+
+      // Modo: el que eligió la persona; si no eligió, el del navegador/sistema,
+      // y se sigue actualizando si lo cambia mientras la web está abierta.
+      const sistema = ventana?.matchMedia?.('(prefers-color-scheme: dark)');
+      if (modo === 'oscuro' || modo === 'claro') {
+        this.aplicarModo(modo === 'oscuro');
+      } else {
+        this.aplicarModo(sistema?.matches ?? false);
+        sistema?.addEventListener('change', (e: MediaQueryListEvent) => {
+          let elegido: string | null = null;
+          try { elegido = ventana?.localStorage.getItem(CLAVE_MODO) ?? null; } catch {}
+          if (!elegido) this.aplicarModo(e.matches);
+        });
       }
     });
   }

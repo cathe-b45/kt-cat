@@ -73,7 +73,7 @@ export const TEXTOS: Record<Idioma, Textos> = {
   es: {
     metaTitulo: 'kt.cat',
     metaDescripcion:
-      'Amigurumis de crochet hechos a mano, casi todos en chenilla. Patrones gratis, testings, trabajos terminados e ilustraciones.',
+      'Crochet hecho a mano, casi todo en chenilla. Patrones gratis, testings, trabajos terminados e ilustraciones.',
     idiomaAria: 'Idioma',
     navAria: 'Secciones',
     lema: 'Personajes que me encantan, hechos a mano en crochet.',
@@ -138,7 +138,7 @@ export const TEXTOS: Record<Idioma, Textos> = {
   en: {
     metaTitulo: 'kt.cat',
     metaDescripcion:
-      'Handmade crochet amigurumi, mostly in chenille. Free patterns, pattern testing, finished work and illustrations.',
+      'Handmade crochet, mostly in chenille. Free patterns, pattern testing, finished work and illustrations.',
     idiomaAria: 'Language',
     navAria: 'Sections',
     lema: 'Characters I love, crocheted by hand.',
@@ -203,7 +203,7 @@ export const TEXTOS: Record<Idioma, Textos> = {
   fr: {
     metaTitulo: 'kt.cat',
     metaDescripcion:
-      'Amigurumis au crochet faits main, presque tous en chenille. Patrons gratuits, tests de patrons, réalisations et illustrations.',
+      'Crochet fait main, presque tout en chenille. Patrons gratuits, tests de patrons, réalisations et illustrations.',
     idiomaAria: 'Langue',
     navAria: 'Sections',
     lema: 'Des personnages que j’adore, faits main au crochet.',
