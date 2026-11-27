@@ -21,7 +21,8 @@ Abre http://localhost:4200 (te lleva a `/es`).
 | Estrellitas y corazones del fondo                 | `src/app/componentes/fondo.ts`        |
 | Cursor de ganchillo                               | `public/ganchillo.svg`                |
 
-Las fotos van en `public/fotos/` y en `contenido.ts` se escriben como `'/fotos/nombre.jpg'`.
+Las fotos van en `public/fotos/` y en `contenido.ts` se escriben como `'fotos/nombre.jpg'`
+(sin `/` al principio, para que funcionen también en `https://cathe-b45.github.io/kt-cat/`).
 Los PDF de los patrones van en `public/patrones/`.
 
 ## Idiomas
@@ -65,11 +66,10 @@ Para conectarlo (una sola vez):
 
 ## Publicar en GitHub Pages
 
-1. Sube el proyecto a un repositorio de GitHub (rama `main`).
-2. En Settings → Pages, en "Source" elige **GitHub Actions**.
-3. Cada vez que subas cambios (o se actualice Instagram) se publica sola.
+La web está en **https://cathe-b45.github.io/kt-cat/** (repositorio `cathe-b45/kt-cat`,
+Settings → Pages con "Source" en **GitHub Actions**). Cada vez que subes cambios a `main` se
+publica sola, y también cuando la Action de Instagram/TikTok encuentra publicaciones nuevas.
 
-Si usas tu propio dominio (por ejemplo `ktcat.es`), configúralo en Settings → Pages → Custom domain.
-Si no usas dominio propio y la web queda en `https://usuario.github.io/kt-cat/`, cambia en
-`package.json` el script `build:pages` por
-`ng build --base-href /kt-cat/ && node scripts/preparar-pages.mjs`.
+`build:pages` compila con `--base-href /kt-cat/`. Si algún día usas tu propio dominio
+(por ejemplo `ktcat.es`), configúralo en Settings → Pages → Custom domain y cambia en
+`package.json` ese `--base-href /kt-cat/` por `--base-href /`.

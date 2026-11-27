@@ -3,6 +3,7 @@ import { provideRouter } from '@angular/router';
 import { afterEach, describe, expect, it } from 'vitest';
 import { Buscador, coincideBusqueda } from './buscador';
 import { IdiomaService } from '../i18n/idioma.service';
+import { TESTINGS } from '../datos/contenido';
 
 describe('Buscador', () => {
   afterEach(() => TestBed.resetTestingModule());
@@ -22,7 +23,9 @@ describe('Buscador', () => {
     fixture.detectChanges();
     const resultado = root.querySelector('li a')!;
     expect(resultado.textContent).toContain('Maomao');
-    expect(resultado.getAttribute('href')).toBe('/fr/testings#testing-1');
+    // La posición sale de los datos, para que el test no se rompa al reordenar los testings.
+    const posicion = TESTINGS.findIndex((p) => p.nombre === 'Maomao');
+    expect(resultado.getAttribute('href')).toBe('/fr/testings#testing-' + posicion);
     input.value = 'zzzzsinresultados';
     input.dispatchEvent(new Event('input'));
     fixture.detectChanges();

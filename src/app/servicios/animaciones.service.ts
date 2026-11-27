@@ -41,6 +41,9 @@ export class AnimacionesService {
       import('gsap/DrawSVGPlugin'),
     ]).then(([{ gsap }, { ScrollTrigger }, { SplitText }, { DrawSVGPlugin }]) => {
       gsap.registerPlugin(ScrollTrigger, SplitText, DrawSVGPlugin);
+      // Las mismas animaciones sirven para todas las páginas y no todas tienen cada pieza
+      // (cintas, intros, botones de portada…): si falta, simplemente no se anima, sin avisos.
+      gsap.config({ nullTargetWarn: false });
       return { gsap, ScrollTrigger, SplitText };
     }));
   }

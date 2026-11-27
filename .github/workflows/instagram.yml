@@ -7,16 +7,17 @@ on:
 
 permissions:
   contents: write
+  actions: write   # para lanzar "Publicar en GitHub Pages" cuando hay novedades
 
 jobs:
   instagram:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Vídeos de TikTok
         continue-on-error: true
@@ -59,4 +60,9 @@ jobs:
           else
             git commit -m "Actualizar Instagram y TikTok"
             git push
+            # Lo que sube este workflow no lanza "Publicar" por sí solo: lo lanzamos a mano,
+            # y solo cuando hay publicaciones nuevas.
+            gh workflow run publicar.yml --ref main
           fi
+        env:
+          GH_TOKEN: ${{ github.token }}

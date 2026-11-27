@@ -3,10 +3,7 @@ name: Publicar en GitHub Pages
 on:
   push:
     branches: [main]
-  workflow_run:
-    workflows: ["Actualizar Instagram"]
-    types: [completed]
-  workflow_dispatch:
+  workflow_dispatch:   # también lo lanza "Actualizar Instagram" cuando hay publicaciones nuevas
 
 permissions:
   contents: read
@@ -21,16 +18,16 @@ jobs:
   construir:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: main
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
       - run: npm ci
       - run: npm run build:pages
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: dist/kt-cat/browser
 
@@ -42,4 +39,4 @@ jobs:
       url: ${{ steps.despliegue.outputs.page_url }}
     steps:
       - id: despliegue
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
