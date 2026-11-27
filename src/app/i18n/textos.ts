@@ -71,7 +71,7 @@ export interface Textos {
 
 export const TEXTOS: Record<Idioma, Textos> = {
   es: {
-    metaTitulo: 'kt.cat · amigurumis de crochet',
+    metaTitulo: 'kt.cat',
     metaDescripcion:
       'Amigurumis de crochet hechos a mano, casi todos en chenilla. Patrones gratis, testings, trabajos terminados e ilustraciones.',
     idiomaAria: 'Idioma',
@@ -136,7 +136,7 @@ export const TEXTOS: Record<Idioma, Textos> = {
   },
 
   en: {
-    metaTitulo: 'kt.cat · crochet amigurumi',
+    metaTitulo: 'kt.cat',
     metaDescripcion:
       'Handmade crochet amigurumi, mostly in chenille. Free patterns, pattern testing, finished work and illustrations.',
     idiomaAria: 'Language',
@@ -201,7 +201,7 @@ export const TEXTOS: Record<Idioma, Textos> = {
   },
 
   fr: {
-    metaTitulo: 'kt.cat · amigurumis au crochet',
+    metaTitulo: 'kt.cat',
     metaDescripcion:
       'Amigurumis au crochet faits main, presque tous en chenille. Patrons gratuits, tests de patrons, réalisations et illustrations.',
     idiomaAria: 'Langue',
